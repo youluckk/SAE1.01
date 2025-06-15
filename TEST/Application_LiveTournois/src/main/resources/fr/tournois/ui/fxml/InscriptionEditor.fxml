@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.tournois.ui.controller.InscriptionEditorController" 
+          hgap="10" vgap="10" style="-fx-padding: 20;" styleClass="borderlight">
+    
+    <Label fx:id="labelTitre" text="Nouvelle Inscription" style="-fx-font-size: 16px; -fx-font-weight: bold;" 
+           GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+    
+    <Label text="Tournoi:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label fx:id="labelTournoiInfo" text="Aucun tournoi sélectionné" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    
+    <Label text="Équipe:*" styleClass="required-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <ComboBox fx:id="comboEquipe" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    
+    <Label text="Statut:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <ComboBox fx:id="comboStatut" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    
+    <Label text="Informations:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="4" spacing="5">
+        <Label fx:id="labelInfoTournoi" text="" style="-fx-font-size: 12px;" />
+        <Label fx:id="labelPlacesDisponibles" text="" style="-fx-font-size: 12px; -fx-font-weight: bold;" />
+    </VBox>
+    
+    <Label fx:id="labelMessage" text="" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2" />
+    
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2">
+        <Button fx:id="btnAnnuler" text="Annuler" onAction="#doAnnuler" />
+        <Button fx:id="btnValider" text="Valider" onAction="#doValider" />
+    </HBox>
+    
+    <Label text="* Champs obligatoires" style="-fx-font-size: 10px; -fx-font-style: italic; -fx-text-fill: gray;" 
+           GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.columnSpan="2" />
+</GridPane>

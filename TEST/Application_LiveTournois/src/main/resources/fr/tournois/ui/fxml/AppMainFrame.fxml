@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.tournois.ui.controller.AppMainFrameController">
+    <!-- Menu principal en haut -->
+    <top>
+        <VBox>
+            <MenuBar fx:id="menuBar">
+                <menus>
+                    <Menu text="Fichier">
+                        <MenuItem text="Quitter" fx:id="menuQuitter" onAction="#doQuitter" />
+                    </Menu>
+                    <Menu text="Compte" fx:id="menuCompte">
+                        <MenuItem text="Se connecter" fx:id="menuConnexion" onAction="#doConnexion" />
+                        <MenuItem text="Se déconnecter" fx:id="menuDeconnexion" onAction="#doDeconnexion" />
+                    </Menu>
+
+                    <Menu text="Staff">
+                        <MenuItem text="Gestion du Staff" fx:id="menuStaff" onAction="#doAfficherStaff" />
+                        <MenuItem text="Gestion des Utilisateurs" fx:id="menuUtilisateurs" onAction="#doAfficherUtilisateurs" />
+                    </Menu>
+                    <Menu text="Tournois">
+                        <MenuItem text="Gestion des Tournois" fx:id="menuGestionTournois" onAction="#doAfficherGestionTournois" />
+                        <MenuItem fx:id="menuGestionJeux" text="Gestion des Jeux" onAction="#doAfficherGestionJeux" />
+                        <MenuItem text="Gestion des Equipes" fx:id="menuGestionEquipes" onAction="#ouvrirGestionEquipes" />
+                        <MenuItem fx:id="menuGestionJoueurs" text="Gestion des Joueurs" onAction="#doAfficherGestionJoueursGlobal"/>
+                    </Menu>
+                    <Menu text="Export">
+                        <MenuItem text="Exporter Tournois" fx:id="menuExporterTournois" onAction="#doExportTournoi" />
+                    </Menu>
+                    <Menu text="?">
+                        <MenuItem text="À propos" fx:id="menuAPropos" onAction="#doAfficherAPropos" />
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <HBox style="-fx-padding: 4; -fx-background-color: #f4f4f4;" alignment="CENTER_RIGHT">
+                <Label fx:id="labelUtilisateur" text="Non connecté" style="-fx-font-style: italic; -fx-padding: 0 10 0 0;" />
+            </HBox>
+        </VBox>
+    </top>
+    <!-- Zone centrale dynamique -->
+    <center>
+        <StackPane fx:id="mainContentPane" />
+    </center>
+</BorderPane>

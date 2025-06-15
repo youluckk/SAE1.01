@@ -1,0 +1,16 @@
+
+-- mdp : admin123
+INSERT INTO Utilisateur (id_utilisateur, pseudo, passwd, role) VALUES
+(seq_utilisateur_id.NEXTVAL, 'admin', '$2a$12$yLIGyzwXV9v5oyuV3IopsuYo6grkyL69tTZozU02ZJ9pnnbxqfH.e', 'ADMIN');
+
+-- mdp : org1123
+INSERT INTO Utilisateur (id_utilisateur, pseudo, passwd, role) VALUES
+(seq_utilisateur_id.NEXTVAL, 'org1', '$2a$12$jHdpOqTNJcyXiYdhWmODKu9B0B.BOeskBW9UIa2Kgbc1xDIB6WKwe', 'ORGANISATEUR');
+
+-- mdp : org2123
+INSERT INTO Utilisateur (id_utilisateur, pseudo, passwd, role) VALUES
+(seq_utilisateur_id.NEXTVAL, 'org2', '$2a$12$rJ1/Q55EqRY6c99B2KVtAeaPHFTFN48o4X9/nc935gZn5gPHTboX2', 'ORGANISATEUR');
+
+-- mdp : org3123
+INSERT INTO Utilisateur (id_utilisateur, pseudo, passwd, role) VALUES
+(seq_utilisateur_id.NEXTVAL, 'org3', '$2a$12$MMBcFNy33pMLI39IWdQGK.KFbfKgP9vkNFEB2L0C2uiijSpuR8bGO', 'ORGANISATEUR');

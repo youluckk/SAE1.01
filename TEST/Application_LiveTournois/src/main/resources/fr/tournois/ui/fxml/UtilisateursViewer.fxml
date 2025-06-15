@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane minHeight="200.0" minWidth="300.0" prefHeight="400.0" prefWidth="500.0" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.tournois.ui.controller.UtilisateursViewerController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <center>
+        <ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS" pannable="true">
+            <content>
+                <ListView fx:id="utilisateursListView" minHeight="200.0" minWidth="200.0" prefHeight="380.0" prefWidth="480.0" />
+            </content>
+            <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+        </ScrollPane>
+    </center>
+</BorderPane>

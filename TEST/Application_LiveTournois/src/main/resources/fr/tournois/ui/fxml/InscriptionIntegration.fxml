@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.tournois.ui.controller.InscriptionIntegrationController" 
+      spacing="10" style="-fx-padding: 10;">
+   
+   <HBox spacing="10" alignment="CENTER_LEFT">
+      <Label text="Inscriptions:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+      <Label fx:id="labelNbInscrits" text="Inscrits: 0/0" />
+      <Separator orientation="VERTICAL" />
+      <Label fx:id="labelPlacesRestantes" text="Places restantes: 0" />
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="btnInscrireEquipe" text="Inscrire une équipe" onAction="#doInscrireEquipe" />
+      <Button fx:id="btnModifierInscription" text="Modifier" onAction="#doModifierInscription" disable="true" />
+      <Button fx:id="btnSupprimerInscription" text="Supprimer" onAction="#doSupprimerInscription" disable="true" styleClass="danger-button" />
+   </HBox>
+   
+   <TableView fx:id="tableInscriptions" VBox.vgrow="ALWAYS">
+      <columns>
+         <TableColumn fx:id="colEquipe" text="Équipe" prefWidth="250" />
+         <TableColumn fx:id="colDateInscription" text="Date d'inscription" prefWidth="200" />
+         <TableColumn fx:id="colStatut" text="Statut" prefWidth="150" />
+      </columns>
+      <placeholder>
+         <Label text="Sélectionnez un tournoi pour voir ses inscriptions" style="-fx-font-style: italic;" />
+      </placeholder>
+   </TableView>
+   
+</VBox>

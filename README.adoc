@@ -1,0 +1,89 @@
+=== Readme équipe 4B3
+
+==== Présentation de l'équipe et rôles respectifs
+* Veron Victor : Gestion des gestions, Affectation du staff, Cahier des charges V1/V2/V3, Doc Util. V1, cahier de tests V0/V1, gantt prévu V2
+* Larrose Thomas : Gestion des tournois, Documentation utilisateur V0, Cahier de recette V0
+* Olivencia Eliot : Gestion des utilisateurs, Gantt V0 prévu/réalisé, Documentation technique V0/V1
+
+==== Livrables
+
+[cols="1,2,2,5",options=header]
+|===
+| Date    | Nom         |  Lien                             | Retour Prof
+| 09/05   | CDC V1      |  link:V1_SAE2-06/Documentation/CDC_V1.adoc[CDC V1]                                 |           
+|         |Gantt V1 Prévu| link:V1_SAE2-06/Documentation/Gantt_V1.pdf[GANT_V1]                                 | il manque ressources, jalon et récap. Je n'ai pas d'issues créées dans le github alors que V1 a démarré ! Votre readme s'appelle toujours exemple 
+| 17/05 noté  | CdC final avec V2 et V3| link:V2_SAE2-06/Documentation/CDC_V2.adoc[CDC V2] & link:V3_SAE2-06/Documentation/CDC_V3.adoc[CDC V3]                                   |  Il manque vos noms, le client est l'entreprise créée pas simuland. Au moment du CDC V1 n'est pas réalisée !! Il faut présenter l'existant puis les besoins V1 puis V2 puis V3 (ce qui priorise en fait le travail). Pour V0 on peut aussi montrer les copies d'écran fournies. règle de gestion TB. Les liens vers les UC ne marchent pas. Il me manque un chiffrage plus précis du projet. note 15,75/20
+|         | Doc User V0    | link:V1_SAE2-06/Documentation/manuel_utilisateur_v0.adoc[docUserV0]     |penser à l'entête avec nom du projet, faire un sommaire. Chaque rédacteur doit s'identifier.
+|         | Recette V0  |  link:V1_SAE2-06/Documentation/Recette_V_0.adoc[RECETTE_V0]                   | 
+| 30/05   | Doc Util V0 et début V1 éventuel          | link:V0_SAE2-06/Documentation/Doc-Utilisateur_V0.pdf[Doc Util. V0]     |            
+|         | Gantt V1 Prévu                            | link:V1_SAE2-06/Documentation/Gantt_V1.pdf[GANT_V1]     |            
+|         | Doc. Tech. V0 - début V1 éventuel + code  |  link:V0_SAE2-06/Documentation/Doc-TechniqueV0.pdf[Document Technique V0]    |            
+|         | Cahier des tests V0                       | link:V0_SAE2-06/Documentation/Cahier_de_tests_V0.adoc[Cahier de tests V0]    |            
+|         | Jar V0                                    | link:Release/LiveTournois_V0.jar[Jar V0]    |            
+| 06/06   | Doc Util V1 et début V2 éventuel          | link:V1_SAE2-06/Documentation/Doc-Utilisateur_V1.pdf[Doc Util. V1]     |       Pensez à mettre la version/ date/ nom clients/ noms rédacteurs. Manque sommaire, breve présentation du contexte, présentation des utilisateurs. Les paragraphes doivent être numérotés. Les rédacteurs doivent s'identifier dans les titres des paragraphes ! J'ai des champs avec astérix sur l'appli non expliqué. Lorsque j'ai enregistré mes données, comment vérifier que c'est bon ? Donnez un exemple, notamment des formats (pour date par ex). Précisez les fonctionnalités réservées uniquement aux admin. Qui contacter en cas de problème ?     
+|         | Gantt V1 Réalisé                          |      |            
+|         | Gantt V2 prévu                            | link:V2_SAE2-06/Documentation/images/Gantt_prevu_V2.png[Gantt prévu V2]     |      Manque ressources,prédecesseurs, jalon recap  sur V1. Sur V2 "code V2" C'est trop vague il faut détailler, ne pas mettre les ressources en nom de tâche ! à retravailler pour Gantt V2 réalisé. Manque V1 réalisé.     Manque issues V2 et des issues de V1 notamment tâches de rédaction … très insuffisant la gestion du projet sur Github !
+|         | Doc. Tech. V1 + code et début V2 éventuel |  link:V1_SAE2-06/Documentation/Doc-TechniqueV1.pdf[Document Technique V1]    |           
+|         | Cahier Tests V1                           | link:V1_SAE2-06/Documentation/Cahier_de_tests_V1.adoc[Cahier de tests V1]    |            
+|         | Jar V1                                    | link:Release/LiveTournois_V1.jar[Jar V1]    |            
+| 13/06 noté| Doc Util V2 et V3 éventuel                |      |            
+|         | Gantt V2 Réalisé                          | link:V2_SAE2-06\Documentation\images\Gantt_realise_V2.png[Gantt realise V2]     |            
+|         | Gantt V3 Prévu                            | pas de gantt V3 car pas de V3     |            
+|         | Doc. Tech. V2 + code + V3 éventuel        | link:V2_SAE2-06\Documentation\Doc-TechniqueV2.adoc[Doc Tech. V2]    |            
+|         | Cahier Tests V2 et recette finale         | link:V2_SAE2-06/Documentation/Cahier_de_tests_V2.adoc[Cahier de tests V2]     |            
+|         | Jar V2                                    |      |            
+|===
+Les dépôts non notés permettent d'avoir un retour enseignant pour vous améliorer et participent à la note de suivi de projet. Les dépôts notés sont évalué. 
+
+==== Répartition des tâches et état d'avancement
+
+[options="header,footer"]
+|=======================
+|version|rôle     |use case   |fonctionnalité                 |   VERON | LARROSE  |   OLIVENCIA | 
+
+// Version 0 - CRUD Initial
+|0    |ORGANISATEUR    |Gestion des tournois  |Créer un tournoi| | | |
+|0    |ORGANISATEUR    |Gestion des tournois  |Modifier un tournoi| | | |
+|0    |ORGANISATEUR    |Gestion des tournois  |Supprimer un tournoi| | | |
+|0    |ORGANISATEUR    |Gestion des tournois  |Consulter les tournois| | | |
+|0    |ORGANISATEUR    |Gestion des staff  |Créer un staff| | | |
+|0    |ORGANISATEUR    |Gestion des staff  |Modifier un staff| | | |
+|0    |ORGANISATEUR    |Gestion des staff  |Supprimer un staff| | | |
+|0    |ORGANISATEUR    |Gestion des staff  |Consulter les staff| | | |
+|0    |ORGANISATEUR    |Gestion des affectations  |Affecter un staff| | | |
+|0    |ORGANISATEUR    |Gestion des affectations  |Modifier une affectation| | | |
+|0    |ORGANISATEUR    |Gestion des affectations  |Supprimer une affectation| | | |
+|0    |ORGANISATEUR    |Gestion des affectations  |Consulter les affectations| | | |
+|0    |ADMIN    |Gestion des utilisateurs  |Créer un utilisateur| | | |
+|0    |ADMIN    |Gestion des utilisateurs  |Modifier un utilisateur| | | |
+|0    |ADMIN    |Gestion des utilisateurs  |Supprimer un utilisateur| | | |
+|0    |ADMIN    |Gestion des utilisateurs  |Consulter les utilisateurs| | | |
+
+// Version 1 - Gestion des Équipes et Jeux
+|1    |ADMIN    |Gestion des joueurs  |Créer un joueur| | |F |
+|1    |ADMIN    |Gestion des joueurs  |Modifier un joueur| | |F |
+|1    |ADMIN    |Gestion des joueurs  |Supprimer un joueur| | |F |
+|1    |ADMIN    |Gestion des joueurs  |Consulter les joueurs| | |F |
+|1    |ORGANISATEUR    |Gestion des équipes  |Créer une équipe| |F | |
+|1    |ORGANISATEUR    |Gestion des équipes  |Modifier une équipe| |F| |
+|1    |ORGANISATEUR    |Gestion des équipes  |Supprimer une équipe| |F | |
+|1    |ORGANISATEUR    |Gestion des équipes  |Consulter les équipes| |F | |
+|1    |ORGANISATEUR    |Gestion des jeux  |Créer un jeu|F | | |
+|1    |ORGANISATEUR    |Gestion des jeux  |Modifier un jeu|F | | |
+|1    |ORGANISATEUR    |Gestion des jeux  |Supprimer un jeu|F | | |
+|1    |ORGANISATEUR    |Gestion des jeux  |Consulter les jeux|F | | |
+|1    |ORGANISATEUR    |Affectation  |Affecter joueur à équipe| |F | |
+
+// Version 2 - Gestion des PDF et Inscriptions
+|2    |ORGANISATEUR    |Gestion des inscriptions  |Inscrire une équipe| F | | |
+|2    |ORGANISATEUR    |Gestion des inscriptions  |Modifier une inscription| F | | |
+|2    |ORGANISATEUR    |Gestion des inscriptions  |Supprimer une inscription| F | | |
+|2    |ORGANISATEUR    |Gestion des inscriptions  |Consulter les inscriptions| F  | | |
+|2    |ORGANISATEUR    |Documents  |Générer PDF tournoi| |F | |
+|2    |ADMIN    |Documents  |Générer PDF joueur| | |F |
+|2    |ADMIN    |Documents  |Générer PDF liste joueurs| | |F|
+|=======================
+
+*	*F* pour fonctionnel
+*	*D* pour encore en Développement
+*   *A* pour affecté mais pas encore développé

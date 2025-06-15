@@ -1,0 +1,142 @@
+/* Style global de l'application */
+
+/* Style pour les bordures légères */
+.borderlight {
+    -fx-border-color: #cce6ff;
+    -fx-border-radius: 4px;
+    -fx-padding: 10px;
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-background-radius: 4px;
+}
+
+/* Style pour les labels */
+.label {
+    -fx-font-size: 14px;
+}
+
+/* Style pour les boutons */
+
+.button  {
+    -fx-background-color: linear-gradient(to bottom, #4d94ff, #0066ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
+    -fx-margin: 0 5px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #66a3ff, #1a75ff);
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3385ff, #0052cc);
+}
+
+/* Style pour les champs de texte */
+.text-field, .text-area {
+    -fx-padding: 6px;
+    -fx-border-color: #cce6ff;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #4d94ff;
+}
+.text-area {
+    -fx-focus-color: transparent;
+    -fx-text-box-border: transparent;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+}
+.text-area .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+.text-area:focused .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+.text-area:focused {
+    -fx-highlight-fill: #7ecfff;
+}
+
+
+/* Style pour les listes */
+.list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-color: #cce6ff;
+    -fx-border-width: 1px;
+}
+
+.list-cell {
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.list-cell:selected {
+    -fx-background-color: #4d94ff;
+    -fx-text-fill: white;
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+    -fx-text-fill: red;
+    -fx-font-style: italic;
+    -fx-font-size: 14px;
+}
+
+/* Style pour les messages de succès */
+.success-message {
+    -fx-text-fill: #388E3C;
+    -fx-font-size: 14px;
+}
+
+/* Style pour les HBox */
+HBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+/* Style pour la racine */
+.root {
+    -fx-background-color: -fx-background;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Style pour les date-picker */
+.date-picker {
+    -fx-border-color: #cce6ff;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.date-picker:focused {
+    -fx-border-color: #4d94ff;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #4d94ff;
+    -fx-background-radius: 0 4px 4px 0;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #66a3ff;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+/* Style pour les labels obligatoires */
+.required-label {
+    -fx-font-weight: bold;
+}
+.danger-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}

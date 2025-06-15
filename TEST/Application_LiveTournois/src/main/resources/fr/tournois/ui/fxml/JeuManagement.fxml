@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.JeuManagementController">
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnNouveauJeu" text="Nouveau Jeu" onAction="#doNouveauJeu" 
+                        styleClass="primary-button"/>
+                <Button fx:id="btnModifierJeu" text="Modifier" onAction="#doModifierJeu" 
+                        styleClass="secondary-button"/>
+                <Button fx:id="btnSupprimerJeu" text="Supprimer" onAction="#doSupprimerJeu" 
+                        styleClass="danger-button"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Réinitialiser filtres" onAction="#doResetFilters" 
+                        styleClass="secondary-button"/>
+            </HBox>
+            
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Rechercher :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="searchField" promptText="Nom du jeu..." 
+                          onAction="#doRechercheJeu" prefWidth="200"/>
+                
+                <Label text="Genre :" style="-fx-font-weight: bold"/>
+                <ComboBox fx:id="genreFilterComboBox" prefWidth="150"/>
+            </HBox>
+            
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="5">
+            <Label text="Liste des Jeux" style="-fx-font-size: 16px; -fx-font-weight: bold"/>
+            <ListView fx:id="jeuxListView" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="5" right="5" bottom="5" left="5"/>
+                </padding>
+            </ListView>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="5">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Double-cliquez sur un jeu pour le modifier" 
+                       style="-fx-text-fill: #666666; -fx-font-size: 11px"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.tournois.ui.controller.StaffManagementController">
+    <top>
+        <ToolBar>
+            <Button text="Nouveau staff" fx:id="btnNouveau" onAction="#doNouveauStaff" />
+            <Button text="Modifier" fx:id="btnModifier" onAction="#doModifierStaff" />
+            <Button text="Supprimer" fx:id="btnSupprimer" onAction="#doSupprimerStaff" />
+            <TextField fx:id="searchField" promptText="Rechercher..." onAction="#doRechercheStaff" />
+        </ToolBar>
+    </top>
+    <center>
+        <SplitPane orientation="HORIZONTAL">
+            <ListView fx:id="staffListView" prefWidth="220" />
+            <VBox spacing="8" alignment="TOP_LEFT" style="-fx-padding: 8;">
+                <Label text="Détails du staff sélectionné :" />
+                <GridPane vgap="8" hgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <Label text="Nom :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="nomLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label text="Prénom :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="prenomLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label text="Email :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="emailLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label text="Fonction :" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="fonctionLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Label text="Téléphone :" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label fx:id="telephoneLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Label text="Utilisateur associé :" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <Label fx:id="utilisateurLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                </GridPane>
+                <Separator />
+                <Label text="Affectations aux tournois :" />
+                <ListView fx:id="affectationsListView" prefHeight="150" />
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

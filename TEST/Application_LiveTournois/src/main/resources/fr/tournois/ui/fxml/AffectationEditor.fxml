@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.AffectationEditorController"
+            prefHeight="300.0" prefWidth="400.0">
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" 
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+        
+        <Label text="Staff :"/>
+        <ComboBox fx:id="staffComboBox" maxWidth="Infinity"/>
+        
+        <Label text="Rôle spécifique :"/>
+        <TextField fx:id="roleField"/>
+        
+        <Label text="Date de début :"/>
+        <DatePicker fx:id="dateDebutPicker" maxWidth="Infinity"/>
+        
+        <Label text="Date de fin :"/>
+        <DatePicker fx:id="dateFinPicker" maxWidth="Infinity"/>
+
+        <Region VBox.vgrow="ALWAYS"/>
+        
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="OK" fx:id="btnOk" onAction="#doOk"/>
+            <Button text="Annuler" fx:id="btnCancel" onAction="#doCancel"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

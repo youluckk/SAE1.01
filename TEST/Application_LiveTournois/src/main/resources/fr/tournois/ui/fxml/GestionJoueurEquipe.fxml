@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.tournois.ui.controller.GestionJoueurEquipeController">
+
+   <top>
+      <VBox spacing="10.0" styleClass="header-section">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <Label fx:id="titleLabel" styleClass="title" text="Gestion des joueurs" />
+         <Label fx:id="equipeLabel" styleClass="subtitle" text="Équipe : " />
+      </VBox>
+   </top>
+   
+   <center>
+      <HBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+         
+         <!-- Section Joueurs sans équipe -->
+         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="section-title" text="Joueurs disponibles" />
+            <TextField fx:id="searchJoueursLibres" promptText="Rechercher un joueur..." />
+            <ListView fx:id="joueursLibresListView" prefHeight="400.0" />
+            <HBox spacing="10.0" alignment="CENTER">
+               <Button fx:id="ajouterJoueurBtn" onAction="#ajouterJoueurAEquipe"
+                        text="Ajouter à l'équipe" styleClass="btn-primary"
+                        disable="true" />
+            </HBox>
+         </VBox>
+         
+         <!-- Séparateur -->
+         <Separator orientation="VERTICAL" />
+         
+         <!-- Section Joueurs de l'équipe -->
+         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="section-title" text="Joueurs de l'équipe" />
+            <TextField fx:id="searchJoueursEquipe" promptText="Rechercher dans l'équipe..." />
+            <ListView fx:id="joueursEquipeListView" prefHeight="400.0" />
+            <HBox spacing="10.0" alignment="CENTER">
+               <Button fx:id="retirerJoueurBtn" onAction="#retirerJoueurDeEquipe"
+                        text="Retirer de l'équipe" styleClass="btn-danger"
+                        disable="true" />
+            </HBox>
+         </VBox>
+      </HBox>
+   </center>
+   
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <padding>        
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+         <Button fx:id="fermerBtn" onAction="#fermerDialog" text="Fermer" styleClass="btn-secondary" />
+      </HBox>
+   </bottom>
+</BorderPane>

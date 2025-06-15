@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.GestionJoueursController">
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnAjouterJoueur" text="Ajouter Joueur" onAction="#doAjouterJoueur" 
+                        styleClass="primary-button"/>
+                <Button fx:id="btnModifierJoueur" text="Modifier" onAction="#doModifierJoueur" 
+                        styleClass="secondary-button"/>
+                <Button fx:id="btnSupprimerJoueur" text="Supprimer" onAction="#doSupprimerJoueur" 
+                        styleClass="danger-button"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Retour Accueil" onAction="#doRetourAccueil" 
+                        styleClass="secondary-button"/>
+            </HBox>
+            
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Nom :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="nomField" promptText="Nom du joueur..." 
+                          prefWidth="120"/>
+                
+                <Label text="Prénom :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="prenomField" promptText="Prénom..." 
+                          prefWidth="120"/>
+                
+                <Label text="Pseudo :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="pseudoField" promptText="Pseudo..." 
+                          prefWidth="120"/>
+                
+                <Label text="Équipe :" style="-fx-font-weight: bold"/>
+                <ComboBox fx:id="equipeComboBox" prefWidth="150"/>
+            </HBox>
+            
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="5">
+            <Label text="Liste des Joueurs" style="-fx-font-size: 16px; -fx-font-weight: bold"/>
+            <ListView fx:id="joueursListView" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="5" right="5" bottom="5" left="5"/>
+                </padding>
+            </ListView>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="5">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Double-cliquez sur un joueur pour le modifier" 
+                       style="-fx-text-fill: #666666; -fx-font-size: 11px"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

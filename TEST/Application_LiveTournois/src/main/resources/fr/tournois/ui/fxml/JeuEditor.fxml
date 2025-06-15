@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.JeuEditorController"
+            prefWidth="500" prefHeight="450">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <Label text="Informations du Jeu" 
+                   style="-fx-font-size: 18px; -fx-font-weight: bold"/>
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <GridPane hgap="15" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" prefWidth="120" maxWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            
+            <Label text="Nom * :" GridPane.columnIndex="0" GridPane.rowIndex="0" 
+                   style="-fx-font-weight: bold"/>
+            <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                      promptText="Entrez le nom du jeu"/>
+            
+            <Label text="Éditeur :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="editeurField" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      promptText="Entrez l'éditeur"/>
+            
+            <Label text="Année de sortie * :" GridPane.columnIndex="0" GridPane.rowIndex="2" 
+                   style="-fx-font-weight: bold"/>
+            <Spinner fx:id="anneeSortieSpinner" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                    prefWidth="120" editable="true"/>
+            
+            <Label text="Genre :" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="genreField" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                      promptText="Ex: FPS, MOBA, RPG, Sport..."/>
+            
+            <Label text="Description :" GridPane.columnIndex="0" GridPane.rowIndex="4"
+                   GridPane.valignment="TOP"/>
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="4" spacing="5">
+                <TextArea fx:id="descriptionArea" prefHeight="100" wrapText="true"
+                         promptText="Description du jeu (optionnel, max 300 caractères)"/>
+                <Label text="* Champs obligatoires" 
+                       style="-fx-text-fill: #666666; -fx-font-size: 11px"/>
+            </VBox>
+        </GridPane>
+    </center>
+    
+    <bottom>
+        <VBox spacing="15">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER">
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnValider" text="Valider" onAction="#doValider" 
+                        styleClass="primary-button" prefWidth="80"/>
+                <Button fx:id="btnAnnuler" text="Annuler" onAction="#doAnnuler" 
+                        styleClass="secondary-button" prefWidth="80"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

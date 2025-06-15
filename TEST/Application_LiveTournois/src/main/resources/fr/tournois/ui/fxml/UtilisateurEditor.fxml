@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.tournois.ui.controller.UtilisateurEditorController"
+          hgap="10" vgap="10" styleClass="editor-pane">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Pseudo -->
+    <Label text="Pseudo :*" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="required-label"/>
+    <TextField fx:id="pseudoField" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Pseudo de l'utilisateur"/>
+
+    <!-- Mot de passe -->
+    <Label text="Mot de passe :*" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="required-label"/>
+    <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Mot de passe"/>
+
+    <!-- Rôle -->
+    <Label text="Rôle :*" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="required-label"/>
+    <ComboBox fx:id="roleComboBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <!-- Statut -->
+    <Label text="Statut :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="actifCheckBox" text="Actif" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <!-- Boutons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.rowIndex="4" GridPane.columnIndex="0" 
+          GridPane.columnSpan="2" GridPane.rowSpan="1">
+        <Button text="Valider" onAction="#doValider" fx:id="btnValider"/>
+        <Button text="Annuler" onAction="#doAnnuler" fx:id="btnAnnuler"/>
+    </HBox>
+
+</GridPane>

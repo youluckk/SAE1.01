@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.AjoutEquipeController">
+         
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+     
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnAjouterEquipe" text="Ajouter Équipe" onAction="#showAjouterEquipe"
+                         styleClass="primary-button"/>
+                <Button fx:id="btnModifierEquipe" text="Modifier" onAction="#showModifierEquipe"
+                         styleClass="secondary-button"/>
+                <Button fx:id="btnVider" text="Vider" onAction="#doViderChamps"
+                         styleClass="secondary-button"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Retour Accueil" onAction="#doRetourAccueil"
+                         styleClass="secondary-button"/>
+            </HBox>
+                         
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Nom de l'équipe :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="nomEquipeField" promptText="Entrez le nom de l'équipe..."
+                           onAction="#ajouterEquipe" prefWidth="300"/>
+            </HBox>
+                         
+            <Separator/>
+        </VBox>
+    </top>
+         
+    <center>
+        <VBox spacing="5">
+            <Label text="Équipes Existantes" style="-fx-font-size: 16px; -fx-font-weight: bold"/>
+            <TableView fx:id="teamTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nomColumn" text="Nom" prefWidth="150"/>
+                    <TableColumn fx:id="tagColumn" text="Tag" prefWidth="80"/>
+                    <TableColumn fx:id="paysColumn" text="Pays" prefWidth="100"/>
+                    <TableColumn fx:id="dateCreationColumn" text="Date création" prefWidth="120"/>
+                </columns>
+                <padding>
+                    <Insets top="5" right="5" bottom="5" left="5"/>
+                </padding>
+            </TableView>
+        </VBox>
+    </center>
+         
+    <bottom>
+        <VBox spacing="5">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Double-cliquez sur une équipe pour la modifier"
+                        style="-fx-text-fill: #666666; -fx-font-size: 11px"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

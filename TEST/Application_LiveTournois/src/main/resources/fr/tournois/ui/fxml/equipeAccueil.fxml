@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fr.tournois.ui.controller.EquipeController"
+            stylesheets="@/fr/tournois/ui/css/style.css">
+
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="btnNouvelleEquipe" text="Nouvelle Équipe" onAction="#showNouvelleEquipe"
+                        styleClass="primary-button"/>
+                <Button fx:id="btnGererJoueurs" text="Gérer Joueurs" onAction="#gererJoueur"
+                        styleClass="secondary-button"/>
+                <Button fx:id="btnSupprimerEquipe" text="Supprimer Équipe" onAction="#handleDeleteTeam"
+                        styleClass="secondary-button"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Actualiser" onAction="#doActualiser"
+                        styleClass="secondary-button"/>
+            </HBox>
+            
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Rechercher :" style="-fx-font-weight: bold"/>
+                <TextField fx:id="searchField" promptText="Nom de l'équipe..."
+                          onAction="#doRechercheEquipe" prefWidth="200"/>
+            </HBox>
+            
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="5">
+            <Label text="Liste des Équipes" style="-fx-font-size: 16px; -fx-font-weight: bold"/>
+            <TableView fx:id="teamTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Nom de l'équipe" prefWidth="200"/>
+                    <TableColumn fx:id="membersColumn" text="Membres" prefWidth="400"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="5">
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Sélectionnez une équipe pour la supprimer ou gérer ses joueurs"
+                       style="-fx-text-fill: #666666; -fx-font-size: 11px"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
