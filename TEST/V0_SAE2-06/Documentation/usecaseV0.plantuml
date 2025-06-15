@@ -1,0 +1,60 @@
+@startuml V0
+left to right direction
+skinparam packageStyle rectangle
+
+actor "ADMIN" as admin
+actor "ORGANISATEUR" as org
+
+admin --|> org
+
+rectangle "V0 - Gestion des Tournois" {
+    usecase "Gérer les tournois" as GT
+    usecase "Créer un tournoi" as CT
+    usecase "Modifier un tournoi" as MT
+    usecase "Supprimer un tournoi" as ST
+    usecase "Consulter les tournois" as CST
+
+    usecase "Gérer les staff" as GS
+    usecase "Créer un staff" as CS
+    usecase "Modifier un staff" as MS
+    usecase "Supprimer un staff" as SS
+    usecase "Consulter les staff" as CSS
+
+    usecase "Gérer les affectations" as GA
+    usecase "Affecter un staff" as AS
+    usecase "Modifier une affectation" as MA
+    usecase "Supprimer une affectation" as SA
+    usecase "Consulter les affectations" as CSA
+
+    usecase "Gérer les utilisateurs" as GU
+    usecase "Créer un utilisateur" as CU
+    usecase "Modifier un utilisateur" as MU
+    usecase "Supprimer un utilisateur" as SU
+    usecase "Consulter les utilisateurs" as CSU
+
+    ' Relations V0
+    org --> GT
+    GT <|-- CT
+    GT <|-- MT
+    GT <|-- ST
+    GT <|-- CST
+
+    org --> GS
+    GS <|-- CS
+    GS <|-- MS
+    GS <|-- SS
+    GS <|-- CSS
+
+    org --> GA
+    GA <|-- AS
+    GA <|-- MA
+    GA <|-- SA
+    GA <|-- CSA
+
+    admin --> GU
+    GU <|-- CU
+    GU <|-- MU
+    GU <|-- SU
+    GU <|-- CSU
+}
+@enduml

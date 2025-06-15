@@ -1,0 +1,128 @@
+
+= Cahier de Recette – Version 0 (V0)
+2025-05-18
+:author: Thomas LARROSE, Victor VERRON, Eliot OLIVENCIA
+:doctype: book
+:icons: font
+:toc: left
+:toclevels: 2
+
+== Objectif
+Ce cahier de recette valide les fonctionnalités de base de la Version 0 de l'application *LiveTournois*. Il s’appuie sur les cas d’utilisation implémentés et sur l’interface utilisateur disponible.
+
+== Acteurs
+* *ORGANISATEUR* : gestion des tournois, du staff et des affectations.
+* *ADMIN* : possède les mêmes droits que l'organisateur + gestion des utilisateurs.
+
+== Méthodologie de test
+
+Chaque fonctionnalité sera testée manuellement depuis l’IHM visible dans les écrans de démonstration fournis. Les résultats attendus sont décrits pour chaque cas d’usage.
+
+== Fonctionnalités testées
+
+=== 1. Gestion des Tournois (ORGANISATEUR)
+
+Interface observée : *Écran "Gestion tournois"* et *Édition tournoi*
+
+[cols="1,2,2", options="header"]
+|===
+| Cas d’utilisation | Scénario de test | Résultat attendu
+
+| Créer un tournoi
+| Depuis "Tournois" → bouton *Nouveau*. Saisir les champs obligatoires : nom, dates, lieu, jeu, format, nombre équipes, statut, prix.
+| Tournoi ajouté à la liste, confirmation affichée.
+
+| Modifier un tournoi
+| Sélectionner un tournoi → bouton *Modifier*. Modifier au moins un champ (ex : date ou nom).
+| Informations mises à jour, affichage mis à jour dans la liste.
+
+| Supprimer un tournoi
+| Sélectionner un tournoi existant, cliquer sur *Supprimer* → confirmer.
+| Le tournoi disparaît, message de confirmation.
+
+| Consulter la liste
+| Ouvrir "Tournois" → liste affichée en table (nom, date, jeu, format…)
+| Liste exacte des tournois, scrollable et filtrable.
+|===
+
+=== 2. Gestion des utilisateurs (ADMIN)
+
+Interface observée : *Écran "Gestion des Utilisateurs"* et *Fenêtre édition utilisateur*
+
+[cols="1,2,2", options="header"]
+|===
+| Cas d’utilisation | Scénario de test | Résultat attendu
+
+| Créer un utilisateur
+| Cliquer sur *Nouveau utilisateur*, remplir les champs obligatoires (pseudo, mot de passe, rôle, statut actif).
+| Le nouvel utilisateur apparaît dans la liste.
+
+| Modifier un utilisateur
+| Sélectionner un utilisateur, cliquer sur *Modifier*. Changer le rôle ou mot de passe.
+| Modifications visibles après validation.
+
+| Supprimer un utilisateur
+| Sélectionner un utilisateur, cliquer sur *Supprimer*, confirmer.
+| Utilisateur supprimé, message de confirmation.
+
+| Rechercher un utilisateur
+| Saisir une partie du pseudo dans la barre de recherche.
+| Filtrage immédiat de la liste.
+|===
+
+=== 3. Gestion des affectations de staff (ORGANISATEUR)
+
+Interface disponible : à valider dans les menus (selon les droits)
+
+[cols="1,2,2", options="header"]
+|===
+| Cas d’utilisation | Scénario de test | Résultat attendu
+
+| Affecter un staff
+| Depuis un tournoi, cliquer sur *Affecter un staff*, choisir dans la liste déroulante.
+| Affectation affichée dans la fiche du tournoi.
+
+| Modifier une affectation
+| Modifier un staff affecté à un tournoi.
+| Mise à jour enregistrée.
+
+| Supprimer une affectation
+| Cliquer sur *Supprimer l’affectation* d’un staff.
+| Le lien staff-tournoi est supprimé.
+
+| Consulter affectations
+| Ouvrir la liste des affectations par tournoi.
+| Liste exacte, liée au tournoi sélectionné.
+|===
+
+== Environnement de test
+
+- Application JavaFX
+- Base Oracle fournie
+- Tests réalisés sur Windows 11 avec Oracle SQL Developer installé
+
+== Critères de validation
+
+- Tous les boutons fonctionnent comme prévu (activation/désactivation)
+- Les erreurs sont gérées (ex : champs obligatoires vides → message d’erreur)
+- Les données s'affichent et se mettent à jour correctement après chaque action
+- Aucune anomalie visuelle dans les écrans (alignement, champs coupés, etc.)
+
+== Captures d’écran utilisées comme référence
+
+- Démarrage application
+- Gestion tournois (liste)
+- Édition d’un tournoi
+- Gestion des utilisateurs
+- Édition d’un utilisateur
+
+== Observations
+
+- L’application démarre correctement
+- Les menus sont fonctionnels, les champs obligatoires bien identifiés par `*`
+- Le rôle connecté est visible en haut à droite
+- Navigation intuitive dans la barre supérieure
+
+== Suivi
+
+Toute anomalie constatée doit être remontée via une issue GitHub (tag `bug`) avec capture et reproduction.

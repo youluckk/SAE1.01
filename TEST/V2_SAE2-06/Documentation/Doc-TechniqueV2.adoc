@@ -1,0 +1,156 @@
+= Documentation Technique V2 – LiveTournois
+:toc:
+:toc-title: Sommaire
+:imagesdir: ../V2_SAE2-06/Documentation/images
+:icons: font
+:sectnums:
+:sectnumlevels: 3
+:doctype: book
+:author: Équipe LiveTournois
+:revnumber: V2
+:revdate: 2025-06-15
+
+== Introduction
+
+Cette documentation technique s'adresse à un développeur Java ayant des bases en JavaFX et JDBC. Elle complète la lecture du code dans VSCode et détaille les fonctionnalités principales de l'application LiveTournois V2, en s'appuyant sur les cas d'utilisation illustrés dans les schémas des différentes versions.
+
+== Architecture générale
+
+L'application est structurée en couches : UI (JavaFX), Modèle (entités métier), DAO (accès JDBC à Oracle), Sécurité (authentification et droits). Chaque fonctionnalité s'appuie sur des classes dédiées, une gestion centralisée des connexions, et une séparation stricte des responsabilités.
+
+== Cas d'utilisation détaillés
+
+image::USE_CASE_V2/V2.png[Vue d'ensemble des cas d'utilisation,align="center"]
+
+=== Gestion des tournois (Organisateur)
+
+image::USE_CASE_V0/gestion_tournois.png[Cas d'utilisation : gestion des tournois,align="center"]
+
+*Créer, modifier, supprimer, consulter un tournoi*
+
+- **Classes principales :** `Tournoi`, `TournoiDAO`, `TournoiController`, vues JavaFX associées.
+- **Fonctionnement :**
+  - L'utilisateur interagit via l'UI pour créer, modifier, supprimer ou consulter un tournoi.
+  - Les actions sont traitées par le contrôleur, qui fait appel au DAO pour accéder à la base.
+  - Les erreurs (ex : doublon, suppression impossible si tournoi lié) sont gérées par des exceptions personnalisées (`DAOException`) et des messages d'alerte dans l'UI.
+- **Remarque :** La validation des données (dates, unicité du nom) est faite côté contrôleur avant insertion/modification.
+
+=== Gestion des staff (Organisateur)
+
+image::USE_CASE_V0/gestion_staffs.png[Cas d'utilisation : gestion des staff,align="center"]
+
+*Créer, modifier, supprimer, consulter un staff*
+
+- **Classes principales :** `Staff`, `StaffDAO`, `StaffController`, vues JavaFX.
+- **Fonctionnement :**
+  - Les opérations CRUD sont analogues à celles des tournois.
+  - Gestion des erreurs sur les droits d'accès et l'intégrité référentielle (ex : staff affecté à un tournoi).
+
+=== Gestion des affectations (Organisateur)
+
+image::USE_CASE_V0/gestion_affectations.png[Cas d'utilisation : gestion des affectations,align="center"]
+
+*Affecter, modifier, supprimer, consulter une affectation de staff*
+
+- **Classes principales :** `Affectation`, `AffectationDAO`, `AffectationController`.
+- **Fonctionnement :**
+  - Permet d'associer un staff à un tournoi.
+  - Vérification de la cohérence (pas de doublon, staff disponible).
+  - Gestion des erreurs via exceptions et alertes UI.
+
+=== Gestion des utilisateurs (Admin)
+
+image::USE_CASE_V0/gestion_utilisateur.png[Cas d'utilisation : gestion des utilisateurs,align="center"]
+
+*Créer, modifier, supprimer, consulter un utilisateur*
+
+- **Classes principales :** `Utilisateur`, `UtilisateurDAO`, `UtilisateurController`, vues JavaFX.
+- **Fonctionnement :**
+  - CRUD classique avec contrôle des droits (seul l'admin peut gérer les utilisateurs).
+  - Gestion des erreurs sur l'unicité du login, la suppression d'utilisateurs liés à des entités.
+
+=== Gestion des joueurs (Admin)
+
+*Créer, modifier, supprimer, consulter un joueur*
+
+- **Classes principales :** `Joueur`, `JoueurDAO`, `JoueurController`.
+- **Fonctionnement :**
+  - CRUD avec validation des données (âge, nom unique dans une équipe).
+  - Gestion des erreurs sur les doublons et suppressions impossibles.
+
+=== Gestion des équipes (Organisateur)
+
+*Créer, modifier, supprimer, consulter une équipe*
+
+- **Classes principales :** `Equipe`, `EquipeDAO`, `EquipeController`.
+- **Fonctionnement :**
+  - CRUD avec vérification de la taille de l'équipe, unicité du nom.
+  - Gestion des erreurs sur les suppressions (équipe inscrite à un tournoi).
+
+=== Gestion des jeux (Organisateur)
+
+*Créer, modifier, supprimer, consulter un jeu*
+
+- **Classes principales :** `Jeu`, `JeuDAO`, `JeuController`.
+- **Fonctionnement :**
+  - CRUD classique, gestion des doublons et suppressions impossibles si jeu utilisé.
+
+=== Affectation joueur à équipe (Organisateur)
+
+*Affecter un joueur à une équipe*
+
+- **Classes principales :** `AffectationJoueurEquipe`, `AffectationJoueurEquipeDAO`, `EquipeController`.
+- **Fonctionnement :**
+  - Vérification que le joueur n'est pas déjà affecté.
+  - Gestion des erreurs sur la capacité de l'équipe.
+
+=== Gestion des inscriptions (Organisateur)
+
+*Inscrire, modifier, supprimer, consulter une inscription d'équipe à un tournoi*
+
+- **Classes principales :** `Inscription`, `InscriptionDAO`, `InscriptionController`.
+- **Fonctionnement :**
+  - Vérification que l'équipe n'est pas déjà inscrite.
+  - Gestion des erreurs sur les suppressions (tournoi commencé).
+
+=== Génération de documents PDF
+
+*Générer PDF tournoi, joueur, liste joueurs*
+
+- **Classes principales :** `PDFGenerator`, contrôleurs associés.
+- **Fonctionnement :**
+  - Utilisation d'une bibliothèque tierce (ex : iText) pour générer les PDF.
+  - Gestion des erreurs sur l'accès disque et la cohérence des données.
+
+== Gestion des erreurs et validation
+
+- Les DAO lèvent des exceptions personnalisées (`DAOException`) en cas d'erreur SQL ou de violation de contraintes.
+- Les contrôleurs UI affichent des messages d'alerte adaptés à l'utilisateur.
+- La validation des données est systématique avant toute opération en base.
+
+== Sécurité et droits d'accès
+
+- Les actions sont filtrées selon le profil utilisateur (admin, organisateur).
+- Les contrôleurs vérifient les droits avant d'autoriser une opération.
+
+== Technologies applicatives
+
+- Java 17, JavaFX, JDBC (Oracle)
+- Bibliothèque PDF (iText ou équivalent)
+
+== Outils de développement
+
+- Maven (build, dépendances)
+- JUnit (tests unitaires)
+- Git (gestion de versions)
+
+== Schémas et copies d'écran
+
+image::USE_CASE_V2/Gestion_tournois.png[Gestion des tournois]
+image::USE_CASE_V2/generationPDF_tournois.png[Génération PDF tournoi]
+image::USE_CASE_V2/generationPDF_joueur.png[Génération PDF joueur]
+image::USE_CASE_V2/generationPDF_liste_joueurs.png[Génération PDF liste joueurs]
+
+== Conclusion
+
+Cette documentation permet à un développeur Java de comprendre rapidement l'organisation et le fonctionnement de LiveTournois V2. Pour plus de détails, se référer au code source et aux schémas fournis.

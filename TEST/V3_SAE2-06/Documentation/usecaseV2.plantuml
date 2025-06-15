@@ -1,0 +1,53 @@
+@startuml V2
+left to right direction
+skinparam packageStyle rectangle
+
+actor "ADMIN" as admin
+actor "ORGANISATEUR" as org
+
+admin --|> org
+
+rectangle "V0 - Gestion des Tournois" {
+    usecase "Fonctionnalités V0" as V0
+    note right of V0
+        Gestion des tournois
+        Gestion des staff
+        Gestion des affectations
+        Gestion des utilisateurs (ADMIN)
+    end note
+}
+
+rectangle "V1 - Gestion des Équipes et Jeux" {
+    usecase "Fonctionnalités V1" as V1
+    note right of V1
+        Gestion des joueurs (ADMIN)
+        Gestion des équipes
+        Gestion des jeux
+        Affectation joueur-équipe
+    end note
+}
+
+rectangle "V2 - Documents et Inscriptions" {
+    usecase "Gérer les inscriptions" as GI
+    usecase "Inscrire une équipe" as IE
+    usecase "Modifier une inscription" as MI
+    usecase "Supprimer une inscription" as SI
+    usecase "Consulter les inscriptions" as CSI
+
+    usecase "Générer PDF tournoi" as GPT
+    usecase "Générer PDF joueur" as GPJ
+    usecase "Générer PDF liste joueurs" as GPLJ
+
+    ' Relations V2
+    org --> GI
+    GI <|-- IE
+    GI <|-- MI
+    GI <|-- SI
+    GI <|-- CSI
+
+    org --> GPT
+    admin --> GPJ
+    admin --> GPLJ
+}
+@enduml
+

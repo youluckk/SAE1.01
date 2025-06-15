@@ -1,0 +1,162 @@
+= Cahier de tests – Version 2
+:author: Equipe 4B3
+:toc:
+
+== Introduction
+Ce cahier de tests a pour objectif de guider un utilisateur non informaticien dans la vérification de toutes les fonctionnalités principales de l’application LiveTournois V2. Chaque test est rédigé selon le format Given/When/Then et décrit précisément les actions à réaliser et les résultats attendus à l’écran.
+
+== 1. Connexion et gestion des utilisateurs
+
+=== 1.1 Connexion
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Sur l’écran de connexion | Vous saisissez un identifiant et un mot de passe valides puis cliquez sur "Se connecter" | L’écran d’accueil s’affiche
+|Sur l’écran de connexion | Vous saisissez un identifiant ou un mot de passe incorrect puis cliquez sur "Se connecter" | Une fenêtre affichant "Identifiant ou mot de passe incorrect" apparaît
+|===
+
+=== 1.2 Création d’un utilisateur
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans le menu "Utilisateurs", cliquez sur "Nouveau" | Vous saisissez un identifiant unique et tous les champs obligatoires puis validez | L’utilisateur apparaît dans la liste
+|Dans le menu "Utilisateurs", cliquez sur "Nouveau" | Vous saisissez un identifiant déjà existant puis validez | Une fenêtre affichant "Identifiant déjà utilisé" apparaît
+|Dans le menu "Utilisateurs", cliquez sur "Nouveau" | Vous laissez un champ obligatoire vide puis validez | Une fenêtre affichant "Veuillez remplir tous les champs obligatoires" apparaît
+|===
+
+=== 1.3 Modification et suppression d’utilisateur
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des utilisateurs, sélectionnez un utilisateur | Cliquez sur "Modifier", modifiez les informations puis validez | Les informations sont mises à jour dans la liste
+|Dans la liste des utilisateurs, sélectionnez un utilisateur | Cliquez sur "Supprimer" puis confirmez | L’utilisateur disparaît de la liste
+|===
+
+== 2. Gestion des tournois
+
+=== 2.1 Création d’un tournoi
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans le menu "Tournois", cliquez sur "Nouveau" | Vous saisissez un nom, des dates, un lieu, un format, un jeu et validez | Le tournoi apparaît dans la liste
+|Dans le menu "Tournois", cliquez sur "Nouveau" | Vous laissez un champ obligatoire vide puis validez | Une fenêtre affichant "Veuillez remplir tous les champs obligatoires" apparaît
+|===
+
+=== 2.2 Modification et suppression d’un tournoi
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des tournois, sélectionnez un tournoi | Cliquez sur "Modifier", modifiez les informations puis validez | Les informations sont mises à jour dans la liste
+|Dans la liste des tournois, sélectionnez un tournoi | Cliquez sur "Supprimer" puis confirmez | Le tournoi disparaît de la liste
+|===
+
+== 3. Gestion des équipes
+
+=== 3.1 Création d’une équipe
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans le menu "Équipes", cliquez sur "Nouvelle équipe" | Vous saisissez un nom unique et validez | L’équipe apparaît dans la liste
+|Dans le menu "Équipes", cliquez sur "Nouvelle équipe" | Vous saisissez un nom déjà existant puis validez | Une fenêtre affichant "Nom d’équipe déjà utilisé" apparaît
+|===
+
+=== 3.2 Modification et suppression d’une équipe
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des équipes, sélectionnez une équipe | Cliquez sur "Modifier", modifiez les informations puis validez | Les informations sont mises à jour dans la liste
+|Dans la liste des équipes, sélectionnez une équipe | Cliquez sur "Supprimer" puis confirmez | L’équipe disparaît de la liste
+|===
+
+== 4. Gestion des joueurs
+
+=== 4.1 Ajout d’un joueur à une équipe
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la fiche d’une équipe, cliquez sur "Ajouter joueur" | Vous saisissez les informations du joueur puis validez | Le joueur apparaît dans la liste des joueurs de l’équipe
+|Dans la fiche d’une équipe, cliquez sur "Ajouter joueur" | Vous saisissez un nom déjà présent dans l’équipe puis validez | Une fenêtre affichant "Ce joueur est déjà dans l’équipe" apparaît
+|===
+
+=== 4.2 Modification et suppression d’un joueur
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des joueurs d’une équipe, sélectionnez un joueur | Cliquez sur "Modifier", modifiez les informations puis validez | Les informations sont mises à jour
+|Dans la liste des joueurs d’une équipe, sélectionnez un joueur | Cliquez sur "Supprimer" puis confirmez | Le joueur disparaît de la liste
+|===
+
+== 5. Inscriptions d’équipes à un tournoi
+
+=== 5.1 Inscrire une équipe
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la fiche d’un tournoi, cliquez sur "Inscrire une équipe" | Vous sélectionnez une équipe non inscrite et validez | L’équipe apparaît dans la liste des inscrits
+|Dans la fiche d’un tournoi, cliquez sur "Inscrire une équipe" | Vous sélectionnez une équipe déjà inscrite puis validez | Une fenêtre affichant "Cette équipe est déjà inscrite à ce tournoi" apparaît
+|Dans la fiche d’un tournoi complet, cliquez sur "Inscrire une équipe" | Vous essayez d’inscrire une équipe alors que le nombre maximum est atteint | Une fenêtre affichant "Le tournoi est complet" apparaît
+|===
+
+=== 5.2 Annuler une inscription
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des inscrits d’un tournoi, sélectionnez une équipe | Cliquez sur "Annuler inscription" puis confirmez | L’équipe disparaît de la liste des inscrits
+|===
+
+== 6. Gestion des jeux
+
+=== 6.1 Création, modification, suppression
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans le menu "Jeux", cliquez sur "Nouveau jeu" | Vous saisissez un nom unique et validez | Le jeu apparaît dans la liste
+|Dans le menu "Jeux", cliquez sur "Nouveau jeu" | Vous saisissez un nom déjà existant puis validez | Une fenêtre affichant "Nom de jeu déjà utilisé" apparaît
+|Dans la liste des jeux, sélectionnez un jeu | Cliquez sur "Modifier" ou "Supprimer" puis validez | Le jeu est modifié ou supprimé dans la liste
+|===
+
+== 7. Affectation du staff et gestion des rôles
+
+=== 7.1 Affecter un staff à un tournoi
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la fiche d’un tournoi, cliquez sur "Affecter staff" | Vous sélectionnez un membre du staff et validez | Le staff apparaît dans la liste des affectations
+|Dans la fiche d’un tournoi, cliquez sur "Affecter staff" | Vous sélectionnez un staff déjà affecté puis validez | Une fenêtre affichant "Ce staff est déjà affecté à ce tournoi" apparaît
+|===
+
+=== 7.2 Suppression d’une affectation
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans la liste des affectations d’un tournoi, sélectionnez un staff | Cliquez sur "Supprimer affectation" puis confirmez | Le staff disparaît de la liste des affectations
+|===
+
+== 8. Sécurité et gestion des droits
+
+=== 8.1 Accès aux fonctionnalités selon le rôle
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Connecté en tant qu’administrateur | Vous accédez à toutes les fonctionnalités | Toutes les options de menu sont accessibles
+|Connecté en tant qu’utilisateur standard | Vous essayez d’accéder à une fonctionnalité réservée à l’admin | Une fenêtre affichant "Accès refusé" apparaît
+|===
+
+== 9. Interface utilisateur et navigation
+
+=== 9.1 Navigation et affichage
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Sur n’importe quel écran | Vous cliquez sur "Accueil" | L’écran d’accueil s’affiche
+|Dans une liste (tournois, équipes, etc.) | Vous consultez la liste | Les informations sont correctement affichées
+|===
+
+== 10. Divers et cas d’erreur généraux
+
+=== 10.1 Fenêtres d’erreur explicites
+[cols="1,2,2",options=header]
+|===
+|Given | When | Then
+|Dans n’importe quelle action | Vous effectuez une action non autorisée ou incorrecte | Une fenêtre affichant un message d’erreur explicite et compréhensible apparaît
+|===

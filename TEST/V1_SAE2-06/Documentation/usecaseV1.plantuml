@@ -1,0 +1,62 @@
+@startuml V1
+left to right direction
+skinparam packageStyle rectangle
+
+actor "ADMIN" as admin
+actor "ORGANISATEUR" as org
+
+admin --|> org
+
+rectangle "V0 - Gestion des Tournois" {
+    usecase "Fonctionnalités V0" as V0
+    note right of V0
+        Gestion des tournois
+        Gestion des staff
+        Gestion des affectations
+        Gestion des utilisateurs (ADMIN)
+    end note
+}
+
+rectangle "V1 - Gestion des Équipes et Jeux" {
+    usecase "Gérer les joueurs" as GJ
+    usecase "Créer un joueur" as CJ
+    usecase "Modifier un joueur" as MJ
+    usecase "Supprimer un joueur" as SJ
+    usecase "Consulter les joueurs" as CSJ
+
+    usecase "Gérer les équipes" as GE
+    usecase "Créer une équipe" as CE
+    usecase "Modifier une équipe" as ME
+    usecase "Supprimer une équipe" as SE
+    usecase "Consulter les équipes" as CSE
+
+    usecase "Gérer les jeux" as GJX
+    usecase "Créer un jeu" as CJX
+    usecase "Modifier un jeu" as MJX
+    usecase "Supprimer un jeu" as SJX
+    usecase "Consulter les jeux" as CSJX
+
+    usecase "Affecter joueur à équipe" as AJE
+
+    ' Relations V1
+    admin --> GJ
+    GJ <|-- CJ
+    GJ <|-- MJ
+    GJ <|-- SJ
+    GJ <|-- CSJ
+
+    org --> GE
+    GE <|-- CE
+    GE <|-- ME
+    GE <|-- SE
+    GE <|-- CSE
+
+    org --> GJX
+    GJX <|-- CJX
+    GJX <|-- MJX
+    GJX <|-- SJX
+    GJX <|-- CSJX
+
+    org --> AJE
+}
+@enduml

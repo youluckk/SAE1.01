@@ -1,0 +1,126 @@
+= MANUEL UTILISATEUR
+LiveTournois - Application de gestion de tournois e-sport
+
+:version: 0
+:author: Thomas LARROSE, Victor VERRON, Eliot OLIVENCIA
+:doctype: book
+:icons: font
+:toc: left
+:toclevels: 2
+:date: 17/05/2025
+
+== Introduction
+
+=== 1.1 Contexte
+LiveTournois est une application développée dans le cadre de la SAE 01/05 pour accompagner l’essor de l’e-sport. Elle permet une gestion simple et efficace des tournois de jeux vidéo.
+
+=== 1.2 Objectif du document
+Ce manuel guide les utilisateurs dans l’installation, la prise en main et l’utilisation des principales fonctionnalités de l’application LiveTournois.
+
+=== 1.3 Public visé
+Utilisateurs finaux de l’application, principalement les organisateurs et administrateurs de tournois e-sport.
+
+== Présentation générale de l’application
+
+=== 2.1 Description globale
+LiveTournois est une application JavaFX connectée à une base Oracle, permettant la création, gestion et suivi de tournois. Les fonctionnalités principales incluent :
+
+- Gestion des tournois (CRUD)
+- Gestion des utilisateurs (CRUD)
+- Affectation de staff à des tournois
+
+Des évolutions futures sont prévues pour intégrer joueurs, équipes et inscriptions.
+
+=== 2.2 Objectifs et bénéfices
+Fournir une interface intuitive pour centraliser l’organisation d’événements e-sport, et permettre une gestion autonome des compétitions.
+
+== Environnement nécessaire
+
+=== 3.1 Prérequis techniques
+- OS : Windows 10+, macOS 10.15+, Linux récent
+- Matériel : 4 Go RAM, CPU dual-core 2 GHz, 500 Mo disque
+- Connexion Internet pour mises à jour éventuelles
+
+== Installation de l’application
+
+=== 4.1 Prérequis système
+- Vérifier les prérequis
+- Droits administrateur requis
+- Connexion Internet
+
+=== 4.2 Fichiers à récupérer
+Fichier exécutable d’installation disponible sur le site officiel ou GitHub du projet.
+
+=== 4.3 Étapes d’installation
+1. Télécharger l’exécutable
+2. Lancer le fichier
+3. Suivre l’assistant
+4. Configurer si demandé
+5. Lancer l’application
+
+=== 4.4 Vérification après installation
+S’assurer que l’application se lance sans erreur et que les menus sont accessibles.
+
+== Prise en main de l’application
+
+=== 5.1 Lancement
+Cliquer sur le raccourci "LiveTournois" sur le bureau ou dans le menu de démarrage.
+
+image::/V1_SAE2-06/images/docUser/image1.png[width=600,align=center,title="Écran de démarrage de l'application"]
+
+=== 5.2 Interface
+L’interface principale affiche :
+- Le rôle et nom de l’utilisateur connecté (en haut à droite)
+- Les menus disponibles : Fichier, Compte, Tournois, Joueurs, Staff
+
+=== 5.3 Navigation
+Navigation par menus déroulants en haut de l’écran. Accès direct aux modules via boutons ou listes.
+
+== Utilisation des fonctionnalités
+
+=== 6.1 Gestion des utilisateurs (ADMIN)
+- **Créer** : Ajouter un nouveau compte utilisateur
+- **Modifier** : Modifier mot de passe, rôle, statut
+- **Supprimer** : Supprimer un utilisateur
+- **Filtrer** : Rechercher par pseudo ou rôle
+
+image::/V1_SAE2-06/images/docUser/image2.png[width=600,align=center,title="Liste des utilisateurs"]
+
+image::/V1_SAE2-06/images/docUser/image3.png[width=600,align=center,title="Formulaire de gestion d'un utilisateur"]
+
+=== 6.2 Modifier un utilisateur
+Champs obligatoires : pseudo, mot de passe, rôle, statut (actif/inactif).
+
+=== 6.3 Gestion des tournois (ORGANISATEUR)
+- **Créer** : Saisir nom, dates, lieu, format, nombre d’équipes, jeu, statut
+- **Modifier** : Mettre à jour les informations d’un tournoi existant
+- **Supprimer** : Supprimer un tournoi sélectionné
+- **Lister** : Afficher les tournois disponibles
+
+image::/V1_SAE2-06/images/docUser/image4.png[width=600,align=center,title="Vue des tournois existants"]
+
+image::/V1_SAE2-06/images/docUser/image5.png[width=600,align=center,title="Édition d'un tournoi"]
+
+== Support et contacts
+Pour toute question ou bug :
+- thomas.larrose@etu.univ-tlse2.fr
+- victor.verron@etu.univ-tlse2.fr
+- eliot.olivencia@etu.univ-tlse2.fr
+
+== Annexes
+
+=== 10.1 Glossaire
+[cols="1,3", options="header"]
+|===
+| Terme | Définition
+| Utilisateur | Personne ayant un compte dans l’application
+| Administrateur (ADMIN) | A tous les droits : utilisateurs, tournois, joueurs…
+| Organisateur | Gère les tournois et staff mais pas les utilisateurs
+| Tournoi | Événement compétitif avec format et participants
+| Format | Type de structure : Round Robin, Playoffs, etc.
+| Prix pool | Récompenses à distribuer
+| Jeu associé | Jeu vidéo cible du tournoi
+| Statut | État d’un tournoi ou compte (Actif, Inactif…)
+|===
+
+

@@ -1,0 +1,363 @@
+= Cahier des Charges V2 - Application de Gestion des Tournois Esport
+Duck Co
+18 mai 2025
+:toc: macro
+:toclevels: 3
+:sectnums:
+:imagesdir: images
+:source-highlighter: highlightjs
+:doctype: book
+:icons: font
+
+[.text-right]
+image::logo.png[Logo Duck Co,200,200]
+
+[.text-center]
+Duck Co
+
+[cols="1,1"]
+|===
+| Client   | SIMULAND
+| Date     | 18 mai 2025
+| Version  | 2.0
+|===
+
+toc::[]
+
+== Exposé introductif
+
+=== Contexte du projet
+
+Dans le cadre de l'essor du Esport en France, qui devient un véritable phénomène de société, l'entreprise Duck Co souhaite se lancer sur le marché du Esport en développant sa propre application de gestion des tournois de jeux vidéo. Ce projet s'inscrit dans la stratégie nationale de développement de l'Esport 2020-2025 définie par le gouvernement français, visant à structurer et promouvoir ce secteur en pleine expansion.
+
+L'industrie du Esport connaît une croissance exponentielle ces dernières années, avec une multiplication des compétitions professionnelles, l'apparition de joueurs stars et l'intérêt grandissant des médias et des sponsors. Selon les dernières études, le marché mondial du Esport devrait atteindre plusieurs milliards d'euros d'ici 2025, avec une part significative pour le marché français.
+
+Duck Co, initialement spécialisée dans le développement de jeux sérieux, a identifié une opportunité stratégique dans ce secteur émergent. L'entreprise souhaite diversifier son activité en proposant une solution complète de gestion de tournois Esport qui répondra aux besoins croissants des organisateurs d'événements, des équipes et des joueurs dans ce domaine.
+
+=== Objectifs stratégiques du projet
+
+L'objectif principal du projet est de développer une application JAVA-Oracle de gestion des tournois de jeux vidéo nommée "LiveTournois" qui permettra de répondre aux besoins croissants de l'industrie Esport en pleine expansion.
+
+Dans un marché encore jeune et en cours de structuration, Duck Co ambitionne de fournir un outil professionnel qui deviendra la référence pour l'organisation et la gestion des compétitions Esport en France. 
+
+L'application permettra de :
+
+* **Simplifier l'organisation des tournois** : En automatisant de nombreuses tâches administratives et logistiques, l'application réduira considérablement le temps nécessaire à la mise en place d'un tournoi Esport. Les organisateurs pourront ainsi se concentrer sur les aspects créatifs et stratégiques de leur événement plutôt que sur la gestion opérationnelle.
+* **Professionnaliser le secteur** : En proposant des outils standardisés et des processus rigoureux, LiveTournois contribuera à la professionnalisation du secteur Esport en France. L'application intégrera les meilleures pratiques internationales en matière d'organisation de tournois.
+* **Faciliter le suivi des équipes et des joueurs** : En centralisant les informations relatives aux joueurs et aux équipes, l'application permettra un meilleur suivi de leur parcours et de leurs performances, contribuant ainsi à la valorisation des talents et à l'émergence d'un star-system local.
+* **Améliorer l'expérience des participants** : Grâce à une interface intuitive et des fonctionnalités dédiées, les joueurs et les équipes bénéficieront d'un accès simplifié aux informations concernant les tournois (règlements, plannings, résultats) et pourront gérer efficacement leur participation.
+* **Offrir une visibilité accrue aux sponsors et partenaires** : L'application intégrera des fonctionnalités permettant de mettre en valeur les sponsors et partenaires des tournois, contribuant ainsi à l'attractivité économique des événements Esport.
+
+Le développement sera réalisé en trois versions successives (V1, V2, V3), suivant une approche permettant d'ajuster les fonctionnalités en fonction des retours utilisateurs et de l'évolution du marché.
+
+=== Problématiques adressées
+
+Ce développement s'appuiera sur une application existante nommée "LiveTournois" qu'il faudra faire évoluer pour répondre aux besoins spécifiques de Duck Co et du marché de l'Esport. L'objectif est de se positionner comme un acteur incontournable dans l'écosystème Esport français, en fournissant une plateforme professionnelle facilitant l'organisation et le suivi des compétitions.
+
+Le projet vise à résoudre plusieurs problématiques actuelles du secteur Esport :
+* La complexité administrative dans l'organisation des tournois
+* Le manque d'outils standardisés pour la gestion des compétitions
+* La difficulté à suivre les parcours des joueurs et des équipes
+* Le besoin de valorisation des sponsors et partenaires
+
+== Analyse de l'existant
+
+=== Description du système d'information actuel
+
+L'application "LiveTournois" a évolué depuis sa version initiale (V0) et dispose maintenant, avec la V1, des fonctionnalités suivantes :
+
+Pour le rôle **ORGANISATEUR** :
+
+* **Gestion des tournois :**
+    ** Créer un tournoi
+    ** Modifier un tournoi
+    ** Supprimer un tournoi
+    ** Consulter les tournois
+* **Gestion des staff :**
+    ** Créer un staff
+    ** Modifier un staff
+    ** Supprimer un staff
+    ** Consulter les staff
+* **Gestion des affectations sur un tournoi où l'organisateur est affecté :**
+    ** Affecter un staff
+    ** Modifier une affectation
+    ** Supprimer une affectation
+    ** Consulter les affectations
+* **Gestion complète des équipes :**
+    ** Créer une équipe
+    ** Modifier une équipe
+    ** Supprimer une équipe
+    ** Consulter les équipes
+
+image::USE_CASE_V1/Gestion_equipes.png[Diagramme de cas d'utilisation V1,400,300]
+
+* **Gestion des jeux vidéo :**
+    ** Créer un jeu
+    ** Modifier un jeu
+    ** Supprimer un jeu
+    ** Consulter les jeux
+
+image::USE_CASE_V1/Gestion_JV.png[Diagramme de cas d'utilisation V1,400,300]
+
+* **Affectation des joueurs aux équipes :**
+    ** Affecter un joueur à une équipe
+    ** Modifier une affectation
+    ** Supprimer une affectation
+    ** Consulter les affectations
+
+image::USE_CASE_V1/Gestion_affectations_joueurs.png[Diagramme de cas d'utilisation V1,400,300]
+
+
+Pour le rôle **ADMIN** (qui hérite de ORGANISATEUR) :
+
+* **Gestion des utilisateurs :**
+    ** Créer un utilisateur
+    ** Modifier un utilisateur
+    ** Supprimer un utilisateur
+    ** Consulter les utilisateurs
+* **Gestion complète des joueurs :**
+    ** Créer un joueur
+    ** Modifier un joueur
+    ** Supprimer un joueur
+    ** Consulter les joueurs
+
+image::USE_CASE_V1/Gestion_joueurs.png[Diagramme de cas d'utilisation V1,400,300]
+
+=== Processus impactés par le projet
+
+Les processus suivants seront impactés par les évolutions prévues dans la version V2 :
+
+* Processus d'inscription des équipes aux tournois
+* Processus de documentation des tournois
+* Processus de documentation des profils joueurs
+* Processus de communication avec les participants
+
+=== Règles de gestion et procédures organisationnelles
+
+L'application respecte les règles de gestion suivantes :
+
+* Un tournoi est créé et géré par un organisateur
+* Un staff peut être affecté à un ou plusieurs tournois
+* Un organisateur peut affecter des staff uniquement aux tournois auxquels il est lui-même affecté
+* Un administrateur peut gérer l'ensemble des utilisateurs du système
+* Une équipe est composée d'un ou plusieurs joueurs
+* Un joueur peut appartenir à une ou plusieurs équipes
+* Un tournoi est associé à un jeu vidéo spécifique
+* Les équipes participant à un tournoi doivent être compatibles avec le jeu du tournoi
+
+=== Acteurs impliqués
+
+Les principaux acteurs concernés par le système sont :
+
+* Les administrateurs de la plateforme
+* Les organisateurs de tournois
+* Les membres du staff technique
+* Les équipes et joueurs (utilisateurs finaux qui bénéficieront des nouvelles fonctionnalités)
+
+=== Contraintes liées au projet
+
+==== Contraintes organisationnelles
+
+* Travail en équipe de 3 étudiants
+* Chaque étudiant doit rédiger une partie des documentations
+* Chaque étudiant doit coder au moins une fonctionnalité
+* 2 séances guidées en gestion de projet
+* 6 séances guidées en développement
+* 6 séances en autonomie de la semaine 19 à 25 en gestion de projet
+* 12 séances en autonomie de la semaine 22 à 24 en développement
+
+==== Contraintes techniques
+
+* L'application sera développée en Java avec une interface graphique JavaFX
+* La base de données Oracle est considérée comme non modifiable dans sa structure initiale
+* GitHub sera utilisé comme plateforme centrale pour le versioning du code et la gestion collaborative du projet
+* Outils de conception : Plugin VisualSNI sous Eclipse ou yED
+* Diagrammes UML : starUML ou PlantUML
+* Outil pour les Gantt : Project 2013 ou ProjectLibre
+* Documentation en ASCIIDOC
+
+==== Contraintes humaines
+
+* L'équipe de développement est composée de 3 étudiants
+* Les membres de l'équipe doivent assumer différentes responsabilités (documentation, développement, tests)
+* Nécessité d'une montée en compétence sur les technologies utilisées
+
+==== Contraintes financières
+
+Le budget alloué au projet doit couvrir plusieurs postes de dépenses essentiels :
+
+* **Ressources humaines** : L'équipe de développement composée de 3 étudiants représente le principal poste de dépense. Le coût sera calculé en fonction du temps de travail estimé (heures/homme) et d'un taux horaire correspondant aux compétences mobilisées.
+* **Formation technique** : Des sessions de formation pourront être nécessaires pour que l'équipe maîtrise parfaitement les technologies utilisées (Java/JavaFX, Oracle, GitHub).
+* **Infrastructure technique** : L'environnement de développement et de test nécessitera des ressources matérielles et logicielles spécifiques.
+
+== Analyse des nouveaux besoins
+
+=== Besoins fonctionnels
+
+Les besoins fonctionnels sont répartis en trois versions successives, permettant un développement itératif et incrémental de l'application.
+
+==== Version 1 (Déjà implémentée)
+
+Cette première version s'est concentrée sur les fonctionnalités essentielles de gestion des acteurs principaux du système Esport.
+
+Pour le rôle **ORGANISATEUR** :
+
+* Gestion complète des équipes
+* Gestion des jeux vidéo
+* Affectation des joueurs aux équipes
+
+Pour le rôle **ADMIN**, qui hérite des droits d'ORGANISATEUR :
+
+* Gestion complète des joueurs
+
+==== Version 2 (Version courante)
+
+La deuxième version enrichit l'application avec des fonctionnalités de gestion des inscriptions et de génération de documents.
+
+Pour le rôle **ORGANISATEUR** :
+
+* **Gestion des inscriptions aux tournois** : Cette fonctionnalité permettra d'inscrire des équipes à des tournois spécifiques, en vérifiant la compatibilité avec le jeu du tournoi, le nombre de joueurs requis, et les autres critères d'éligibilité. L'organisateur pourra également modifier les détails d'une inscription, annuler une inscription si nécessaire, et consulter la liste des équipes inscrites à un tournoi avec différentes options de visualisation.
+* **Génération de PDF descriptif d'un tournoi** : L'organisateur pourra générer un document PDF contenant toutes les informations pertinentes sur un tournoi donné, notamment ses caractéristiques générales (nom, date, lieu, format), la liste des équipes inscrites, le planning prévisionnel des matchs, et les membres du staff affectés à l'organisation.
+
+Pour le rôle **ADMIN** :
+
+* **Génération de PDF descriptif d'un joueur** : L'administrateur pourra produire un document PDF détaillant le profil complet d'un joueur, incluant ses informations personnelles, la liste des équipes dont il fait ou a fait partie, l'historique des tournois auxquels il a participé, et diverses statistiques sur ses performances.
+* **Génération de PDF listant tous les joueurs** : Cette fonctionnalité permettra de créer un catalogue complet de tous les joueurs enregistrés dans le système, avec leurs informations essentielles présentées de manière synthétique.
+
+image::USE_CASE_V2/gestion_inscriptions.png[Diagramme de cas d'utilisation V2 - Inscriptions,400,300]
+image::USE_CASE_V2/generation_pdf.png[Diagramme de cas d'utilisation V2 - Génération PDF,400,300]
+
+==== Version 3
+
+La troisième version de l'application sera plus flexible et définie en fonction des retours d'expérience des versions précédentes. Cependant, plusieurs axes d'amélioration sont déjà envisagés :
+
+* Système de gestion des rencontres : Développement d'un module permettant de définir automatiquement ou manuellement les matchs entre équipes selon différents formats de tournoi.
+* Suivi en temps réel des tournois : Mise en place d'un tableau de bord permettant de suivre l'évolution d'un tournoi, avec mise à jour des scores et calcul automatique des classements.
+* Système de notification : Intégration d'un mécanisme d'alertes pour informer les participants et les organisateurs des événements importants.
+* Module de statistiques avancées : Développement d'outils d'analyse permettant d'extraire des données significatives sur les performances des joueurs et des équipes.
+* Interface d'administration des règles : Création d'un module permettant de définir et de personnaliser les règles spécifiques à chaque tournoi.
+
+=== Besoins non-fonctionnels
+
+==== Ergonomie et expérience utilisateur
+
+* L'interface doit être intuitive et cohérente avec l'existant, en reprenant les codes visuels et les principes d'interaction déjà établis dans les versions précédentes de LiveTournois.
+* La navigation entre les différentes fonctionnalités sera optimisée pour minimiser le nombre de clics nécessaires pour réaliser une action.
+* Les messages d'erreur affichés seront clairs, informatifs et accompagnés de suggestions pour résoudre le problème rencontré.
+* Le temps d'apprentissage pour les nouveaux utilisateurs sera réduit grâce à une disposition logique des éléments et des parcours utilisateurs bien pensés.
+
+==== Performance et réactivité
+
+* Les opérations courantes devront s'exécuter avec un temps de réponse inférieur à 2 secondes, même en conditions d'utilisation intensive.
+* L'application devra gérer efficacement les ressources système (mémoire, CPU) pour éviter toute dégradation de performance lors d'une utilisation prolongée.
+* Le système devra supporter l'accès simultané de plusieurs utilisateurs sans impact significatif sur les performances, notamment pendant les phases critiques d'un tournoi.
+
+==== Sécurité et confidentialité
+
+* L'application implémentera un système d'authentification robuste avec différents niveaux d'accès correspondant aux rôles définis (ADMIN, ORGANISATEUR).
+* Les données sensibles des joueurs seront protégées conformément aux réglementations en vigueur sur la protection des données personnelles.
+* Un système de journalisation enregistrera les actions importantes effectuées dans l'application, permettant un audit ultérieur si nécessaire.
+
+==== Maintenabilité et évolutivité
+
+* Le code sera organisé de manière modulaire et bien structurée, en suivant les principes de la programmation orientée objet et les bonnes pratiques de développement Java.
+* Une documentation technique complète accompagnera le code source, décrivant l'architecture, les choix techniques et les algorithmes utilisés.
+* Des commentaires pertinents seront intégrés au code pour faciliter sa compréhension et sa maintenance par d'autres développeurs.
+* Les standards de développement Java seront strictement respectés pour assurer la cohérence et la qualité du code.
+
+==== Fiabilité et robustesse
+
+* Un mécanisme approprié de gestion des exceptions sera mis en place pour traiter les erreurs sans compromettre le fonctionnement global de l'application.
+* Les données importantes feront l'objet de sauvegardes automatiques pour éviter toute perte en cas de problème.
+* Des mécanismes de récupération seront prévus pour restaurer l'état de l'application en cas d'erreur critique ou d'interruption imprévue.
+
+==== Portabilité
+
+* L'application sera compatible avec les principaux systèmes d'exploitation (Windows, macOS, Linux) pour s'adapter aux différentes configurations matérielles des utilisateurs.
+* L'interface graphique s'adaptera à différentes résolutions d'écran, permettant une utilisation confortable sur divers matériels.
+
+=== Critères d'acceptabilité du produit
+
+Pour être considéré comme acceptable, le produit devra répondre aux critères suivants :
+
+* **Fonctionnalités complètes** : L'application doit implémenter toutes les fonctionnalités demandées pour la version V2.
+* **Interface utilisateur intuitive** : L'interface graphique doit être ergonomique, cohérente avec l'existant et facilement utilisable par les différents profils d'utilisateurs.
+* **Performance** : L'application doit répondre rapidement aux requêtes des utilisateurs, avec un temps de réponse inférieur à 2 secondes pour la majorité des opérations.
+* **Fiabilité** : Le système doit être stable, avec un minimum de bugs et de crashs. Les données doivent être préservées en cas d'erreur.
+* **Documentation complète** :
+    ** Documentation technique détaillée
+    ** Documentation utilisateur claire
+    ** Javadoc complète pour le code
+    ** Cahier de tests exhaustif
+* **Tests validés** : Toutes les fonctionnalités doivent passer avec succès les tests unitaires et les tests d'intégration définis dans le cahier de tests.
+* **Maintenabilité** : Le code doit être bien structuré, commenté et respecter les bonnes pratiques de développement Java.
+
+=== Modalités de déploiement
+
+* **Installation** : Des procédures claires d'installation seront fournies pour les différents systèmes d'exploitation.
+* **Formation** : Un programme de formation sera mis en place pour les différentes catégories d'utilisateurs.
+* **Support** : Une documentation utilisateur complète sera développée pour accompagner les utilisateurs dans leur prise en main de l'application.
+
+== Modalités d'organisation pour la suite du projet
+
+=== Planification
+
+Le projet se poursuit selon les phases suivantes :
+
+* **Phase de développement V2 (semaines 23-24) :**
+    ** Développement des fonctionnalités de gestion des inscriptions aux tournois
+    ** Développement des fonctionnalités de génération de PDF
+    ** Tests unitaires et d'intégration
+    ** Correction des bugs identifiés
+    ** Mise à jour de la documentation technique
+    ** Mise à jour de la Javadoc
+* **Phase de développement V3 (semaines 24-25) :**
+    ** Développement des premières fonctionnalités V3 en fonction des priorités établies
+    ** Tests et corrections
+    ** Finalisation de la documentation technique
+    ** Finalisation de la Javadoc
+* **Phase de bilan et livraison (semaine 25) :**
+    ** Livraison de la version finale de l'application
+    ** Évaluation du coût financier du projet
+    ** Bilan humain, organisationnel et technique
+    ** Préparation de la soutenance orale
+
+=== Plan d'assurance qualité
+
+Pour garantir la qualité du produit final, les mesures suivantes seront mises en place :
+
+* **Tests :**
+    ** Tests unitaires avec JUnit pour les nouvelles fonctionnalités
+    ** Tests d'intégration avec les fonctionnalités existantes
+    ** Tests d'interface utilisateur
+    ** Tests de non-régression pour s'assurer que les nouvelles fonctionnalités n'impactent pas les fonctionnalités existantes
+* **Revues de code :**
+    ** Revues régulières du code par les membres de l'équipe
+    ** Respect des conventions de codage Java
+* **Gestion des versions :**
+    ** Utilisation de branches Git pour isoler les développements
+    ** Validation collective des pull requests
+* **Suivi des bugs :**
+    ** Utilisation des issues GitHub pour le suivi des bugs
+    ** Priorisation des corrections selon la gravité
+* **Validation des livrables :**
+    ** Vérification de la conformité avec le cahier des charges
+    ** Tests de validation des fonctionnalités développées
+    ** Revue de la documentation produite
+
+== Outils utilisés pour la rédaction du CDCU
+
+* ASCIIDOC pour la rédaction du document
+* GitHub pour le versioning et le partage des fichiers
+* Outils de modélisation pour les diagrammes
+
+== Glossaire
+
+* **Esport** : Pratique compétitive de jeux vidéo
+* **ADMIN** : Utilisateur avec tous les droits d'administration sur l'application
+* **ORGANISATEUR** : Utilisateur ayant des droits pour créer et gérer des tournois
+* **Staff** : Personne affectée à l'organisation d'un tournoi
+* **MOA** : Maîtrise d'Ouvrage (client)
+* **MOE** : Maîtrise d'Œuvre (prestataire/développeur)
+* **Génération de PDF** : Processus automatisé de création de documents PDF à partir des données de l'application
+* **Inscription au tournoi** : Processus par lequel une équipe est enregistrée comme participante à un tournoi spécifique

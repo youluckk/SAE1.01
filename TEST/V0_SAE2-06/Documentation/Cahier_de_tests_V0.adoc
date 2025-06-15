@@ -1,0 +1,150 @@
+= Cahier de tests – Version 0
+:author: Equipe 4B3
+:toc:
+
+== Introduction
+Ce cahier de tests couvre l’ensemble des fonctionnalités de la version 0 de l’application LiveTournois. Il vise à valider le bon fonctionnement des modules principaux.
+
+== 1. Authentification et gestion des utilisateurs
+=== 1.1 Connexion
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Utilisateur existant, bon mot de passe | Connexion | Accès à l’application | Message d’erreur
+|Utilisateur existant, mauvais mot de passe | Connexion | Message d’erreur | Accès à l’application
+|Identifiant inconnu | Connexion | Message d’erreur | Accès à l’application
+|===
+
+=== 1.2 Création d’utilisateur
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Identifiant unique, champs valides | Création utilisateur | Utilisateur créé | Message d’erreur
+|Identifiant déjà existant | Création utilisateur | Message d’erreur | Utilisateur créé
+|Champs obligatoires manquants | Création utilisateur | Message d’erreur | Utilisateur créé
+|===
+
+=== 1.3 Modification et suppression
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Utilisateur existant | Modification | Informations modifiées | Message d’erreur
+|Utilisateur existant | Suppression | Utilisateur supprimé | Utilisateur toujours présent
+|===
+
+== 2. Gestion des tournois
+=== 2.1 Création
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Champs valides | Création tournoi | Tournoi créé | Message d’erreur
+|Champs obligatoires manquants | Création tournoi | Message d’erreur | Tournoi créé
+|===
+
+=== 2.2 Modification
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Tournoi existant | Modification | Informations modifiées | Message d’erreur
+|===
+
+=== 2.3 Suppression
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Tournoi existant | Suppression | Tournoi supprimé | Tournoi toujours présent
+|===
+
+== 3. Gestion des équipes
+=== 3.1 Création
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Nom unique, champs valides | Création équipe | Équipe créée | Message d’erreur
+|Nom déjà existant | Création équipe | Message d’erreur | Équipe créée
+|===
+
+=== 3.2 Modification
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Équipe existante | Modification | Informations modifiées | Message d’erreur
+|===
+
+=== 3.3 Suppression
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Équipe existante | Suppression | Équipe supprimée | Équipe toujours présente
+|===
+
+== 4. Gestion des joueurs
+=== 4.1 Ajout
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Joueur non présent dans l’équipe | Ajout joueur | Joueur ajouté | Message d’erreur
+|Joueur déjà dans l’équipe | Ajout joueur | Message d’erreur | Joueur ajouté
+|===
+
+=== 4.2 Modification
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Joueur existant | Modification | Informations modifiées | Message d’erreur
+|===
+
+=== 4.3 Suppression
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Joueur existant dans l’équipe | Suppression | Joueur supprimé | Joueur toujours présent
+|===
+
+== 5. Gestion du staff
+=== 5.1 Ajout
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Membre non existant | Ajout staff | Staff ajouté | Message d’erreur
+|Membre déjà existant | Ajout staff | Message d’erreur | Staff ajouté
+|===
+
+=== 5.2 Modification
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Staff existant | Modification | Informations modifiées | Message d’erreur
+|===
+
+=== 5.3 Suppression
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Staff existant | Suppression | Staff supprimé | Staff toujours présent
+|===
+
+== 6. Affectations
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Joueur et équipe existants | Affecter joueur | Joueur affecté à l’équipe | Message d’erreur
+|Staff et tournoi existants | Affecter staff | Staff affecté au tournoi | Message d’erreur
+|Affectation existante | Suppression | Affectation supprimée | Affectation toujours présente
+|===
+
+== 7. Sécurité
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Création/modification utilisateur | Saisie mot de passe | Mot de passe haché en base | Mot de passe en clair
+|===
+
+== 8. Interface utilisateur
+[cols="2,2,3,3",options=header]
+|===
+|Contexte | Action | Résultat attendu | Résultat non attendu
+|Utilisateur avec rôle adéquat | Accès fonctionnalité | Fonctionnalité accessible | Accès refusé
+|Utilisateur sans rôle | Accès fonctionnalité | Accès refusé | Fonctionnalité accessible
+|Affichage liste | Consultation | Liste correctement affichée | Liste vide ou erronée
+|===
